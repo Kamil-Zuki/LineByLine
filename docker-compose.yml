@@ -13,14 +13,14 @@ services:
       - personal-vocab
       - rabbitmq
     ports:
-      - "8081:80"
+      - "8090:80"
     networks:
       - backend
 
   dictionary-parser:
     container_name: dictionary-parser
     build:
-      context: dictionary-parser\dictionary-parser
+      context: ./dictionary-parser
       dockerfile: Dockerfile
     networks:
       - backend
@@ -28,7 +28,7 @@ services:
   authorization-module:
     container_name: authorization-module
     build:
-      context: authorization-module
+      context: ./authorization-module
       dockerfile: Dockerfile
     networks:
       - backend
@@ -40,7 +40,7 @@ services:
   personal-vocab:
     container_name: personal-vocab
     build:
-        context: personal-vocab
+        context: ./personal-vocab
         dockerfile: Dockerfile
     networks:
      - backend
