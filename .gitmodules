@@ -1,12 +1,16 @@
 [submodule "api-gateway"]
 	path = api-gateway
 	url = https://github.com/Kamil-Zuki/api-gateway.git
+	branch = master
 [submodule "personal-vocab"]
 	path = personal-vocab
 	url = https://github.com/Kamil-Zuki/personal-vocab.git
+	branch = master
 [submodule "dictionary-parser"]
 	path = dictionary-parser
 	url = https://github.com/Kamil-Zuki/dictionary-parser.git
+	branch = master
 [submodule "authorization-module"]
 	path = authorization-module
 	url = https://github.com/Kamil-Zuki/authorization-module.git
+	branch = master
