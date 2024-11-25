@@ -14,3 +14,7 @@
 	path = authorization-module
 	url = https://github.com/Kamil-Zuki/authorization-module.git
 	branch = master
+[submodule "dictionary-parser/dictionary-parser"]
+  	path = dictionary-parser/dictionary-parser
+  	url = https://github.com/Kamil-Zuki/dictionary-parser.git
+  	branch = master
