@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   api-gateway:
+    user: root
     container_name: api-gateway
     build:
       context: ./api-gateway/api-gateway
