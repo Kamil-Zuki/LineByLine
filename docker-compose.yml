@@ -52,7 +52,7 @@ services:
       - postgres_pv  
       # - rabbitmq
     environment:
-        DB_CONNECTION_STRING: "Server=127.0.0.1;Port=5455;Database=personal-vocab; User Id=postgres;Password=pv123"
+        DB_CONNECTION_STRING: "Server=127.0.0.1; Port=5455; Database=personal-vocab; User Id=postgres;Password=pv123"
    
   # rabbitmq:
   #   container_name: rabbitmq
@@ -80,22 +80,23 @@ services:
     networks:
       - backend
 
-    postgres_pv:
-      container_name: postgres
-      image: postgres:13
-      environment:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: pv123
-        POSTGRES_DB: personal-vocabulary
-      ports:
-        - "5455:5432"
-      volumes:
-        - postgres-data:/var/lib/postgresql/data
-      networks:
-        - backend
+  postgres_pv:
+    container_name: postgres_pv
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pv123
+      POSTGRES_DB: personal-vocabulary
+    ports:
+      - "5455:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - backend
 
 networks:
   backend:
 
 volumes:
   postgres-data:
+  postgres-pv-data:
