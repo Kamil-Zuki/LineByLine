@@ -28,6 +28,16 @@ services:
     networks:
       - backend
 
+  dictionary-parser:
+    container_name: study-module
+    build:
+      context: ./study-module
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    networks:
+      - backend
+
   authorization-module:
     container_name: authorization-module
     build:

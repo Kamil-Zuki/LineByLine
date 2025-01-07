@@ -14,3 +14,7 @@
     path = authorization-module
     url = https://github.com/Kamil-Zuki/authorization-module.git
     branch = master
+[submodule "study-module"]
+    path = study-module
+    url = https://github.com/Kamil-Zuki/study-module.git
+    branch = master
