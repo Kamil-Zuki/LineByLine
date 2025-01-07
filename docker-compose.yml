@@ -28,7 +28,7 @@ services:
     networks:
       - backend
 
-  dictionary-parser:
+  study-module:
     container_name: study-module
     build:
       context: ./study-module
