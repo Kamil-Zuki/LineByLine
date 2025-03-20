@@ -70,7 +70,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
-      POSTGRES_DB: glosslore
+      POSTGRES_DB: auth-module
     ports:
       - "5454:5432"
     volumes:
