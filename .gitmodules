@@ -1,20 +1,20 @@
 [submodule "api-gateway"]
     path = api-gateway
-    url = https://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@github.com/Kamil-Zuki/api-gateway.git
+    url = https://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@github.com/Kamil-Zuki/api-gateway.git
     branch = master
 [submodule "personal-vocab"]
     path = personal-vocab
-    url = https://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@github.com/Kamil-Zuki/personal-vocab.git
+    url = https://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@github.com/Kamil-Zuki/personal-vocab.git
     branch = master
 [submodule "dictionary-parser"]
 	path = dictionary-parser
-	url = https://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@github.com/Kamil-Zuki/dictionary-parser.git
+	url = https://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@github.com/Kamil-Zuki/dictionary-parser.git
     branch = master
 [submodule "authorization-module"]
     path = authorization-module
-    url = https://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@github.com/Kamil-Zuki/authorization-module.git
+    url = https://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@github.com/Kamil-Zuki/authorization-module.git
     branch = master
 [submodule "study-module"]
     path = study-module
-    url = https://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@github.com/Kamil-Zuki/study-module.git
+    url = https://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@github.com/Kamil-Zuki/study-module.git
     branch = master
