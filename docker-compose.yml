@@ -61,8 +61,11 @@ services:
     depends_on:
       postgres_pv:
         condition: service_healthy
+      redis:
+        condition: service_started
     environment:
       DB_CONNECTION_STRING: "Server=postgres_pv; Port=5432; Database=personal-vocabulary; User Id=postgres; Password=123"
+      REDIS_CONNECTION_STRING: "redis:6379"
 
   postgres:
     container_name: postgres
@@ -102,9 +105,25 @@ services:
       timeout: 5s
       retries: 5
 
+  redis:
+    container_name: redis
+    image: redis:7
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 networks:
   backend:
 
 volumes:
   postgres-data:
   postgres-pv-data:
+  redis-data:
