@@ -67,6 +67,21 @@ services:
       DB_CONNECTION_STRING: "Server=postgres_pv; Port=5432; Database=personal-vocabulary; User Id=postgres; Password=123"
       REDIS_CONNECTION_STRING: "redis:6379"
 
+  line-by-line-ui:
+    container_name: line-by-line-ui
+    build:
+      context: ./line-by-line-ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - backend
+    depends_on:
+      - api-gateway
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: "http://api-gateway:80"
+
   postgres:
     container_name: postgres
     image: postgres:13
