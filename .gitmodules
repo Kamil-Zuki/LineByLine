@@ -18,6 +18,10 @@
     path = study-module
     url = https://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@github.com/Kamil-Zuki/study-module.git
     branch = master
+[submodule "inclusive"]
+    path = inclusive
+    url = https://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@github.com/Kamil-Zuki/inclusive.git
+    branch = master
 [submodule "line-by-line-ui"]
     path = line-by-line-ui
     url = https://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@github.com/Kamil-Zuki/line-by-line-ui.git

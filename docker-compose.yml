@@ -82,6 +82,16 @@ services:
       NODE_ENV: production
       NEXT_PUBLIC_API_URL: "http://api-gateway:80"
 
+  inclusive:
+    container_name: inclusive
+    build:
+      context: ./inclusive
+      dockerfile: Dockerfile
+    depends_on:
+      - study-module
+    networks:
+      - backend
+
   postgres:
     container_name: postgres
     image: postgres:13
