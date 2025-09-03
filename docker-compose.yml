@@ -80,7 +80,7 @@ services:
       - api-gateway
     environment:
       NODE_ENV: production
-      NEXT_PUBLIC_API_URL: "http://api-gateway:80"
+      API_SERVER_ADDRESS: "http://api-gateway:80"
 
   inclusive:
     container_name: inclusive
