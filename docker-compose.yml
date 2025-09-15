@@ -72,6 +72,8 @@ services:
     build:
       context: ./line-by-line-ui
       dockerfile: Dockerfile
+      args:
+        API_SERVER_ADDRESS: "http://api-gateway:80"
     ports:
       - "3000:3000"
     networks:
