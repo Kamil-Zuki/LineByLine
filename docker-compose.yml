@@ -73,16 +73,16 @@ services:
       context: ./line-by-line-ui
       dockerfile: Dockerfile
       args:
-        API_SERVER_ADDRESS: "http://85.175.218.17:81"
+        API_SERVER_ADDRESS: "http://85.175.218.17:8090"
     ports:
-      - "3000:3000"
+      - "8081:3000"
     networks:
       - backend
     depends_on:
       - api-gateway
     environment:
       NODE_ENV: production
-      API_SERVER_ADDRESS: "http://85.175.218.17:81"
+      API_SERVER_ADDRESS: "http://85.175.218.17:8090"
 
   inclusive:
     container_name: inclusive
