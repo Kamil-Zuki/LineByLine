@@ -63,9 +63,12 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
+      inclusive:
+        condition: service_started
     environment:
       DB_CONNECTION_STRING: "Server=postgres_pv; Port=5432; Database=personal-vocabulary; User Id=postgres; Password=123"
       REDIS_CONNECTION_STRING: "redis:6379"
+      GRPC_INCLUSIVE_ADDRESS: "http://inclusive:40051"
 
   line-by-line-ui:
     container_name: line-by-line-ui
@@ -89,10 +92,15 @@ services:
     build:
       context: ./inclusive
       dockerfile: Dockerfile
-    depends_on:
-      - study-module
+    ports:
+      - "40051:40051"
     networks:
       - backend
+    healthcheck:
+      test: ["CMD", "python", "-c", "import grpc; import sys; channel = grpc.insecure_channel('localhost:40051'); sys.exit(0 if channel else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   postgres:
     container_name: postgres
