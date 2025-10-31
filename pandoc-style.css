@@ -1,0 +1,274 @@
+/* LineByLine Platform Vision - Quiet Immersion Style */
+
+:root {
+  --void-black: #0a0a0a;
+  --deep-indigo: rgba(30, 27, 75, 0.9);
+  --frost-white: #f8fafc;
+  --slate-gray: #94a3b8;
+  --soft-cyan: #67e8f9;
+  --muted-amber: #fbbf24;
+  --dark-slate: #1e293b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--frost-white);
+  background: var(--void-black);
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--soft-cyan);
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 2px solid var(--soft-cyan);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--muted-amber);
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--soft-cyan);
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: var(--frost-white);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--soft-cyan);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--muted-amber);
+  text-decoration: underline;
+}
+
+code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  background: var(--deep-indigo);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--soft-cyan);
+}
+
+pre {
+  background: var(--deep-indigo);
+  border: 1px solid var(--dark-slate);
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: var(--frost-white);
+}
+
+blockquote {
+  border-left: 4px solid var(--soft-cyan);
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--slate-gray);
+  background: rgba(30, 27, 75, 0.3);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+}
+
+ul, ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: var(--deep-indigo);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: rgba(103, 232, 249, 0.1);
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--dark-slate);
+}
+
+th {
+  font-weight: 600;
+  color: var(--soft-cyan);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+tr:hover {
+  background: rgba(103, 232, 249, 0.05);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table of Contents */
+#TOC {
+  background: var(--deep-indigo);
+  border: 1px solid var(--dark-slate);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0 3rem 0;
+}
+
+#TOC::before {
+  content: "📚 Table of Contents";
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--muted-amber);
+  margin-bottom: 1rem;
+}
+
+#TOC ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+#TOC li {
+  margin-bottom: 0.5rem;
+}
+
+#TOC a {
+  color: var(--frost-white);
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+#TOC a:hover {
+  color: var(--soft-cyan);
+  transform: translateX(4px);
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  h1, h2, h3 {
+    color: #000;
+    page-break-after: avoid;
+  }
+  
+  table {
+    page-break-inside: avoid;
+  }
+  
+  pre {
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  table {
+    font-size: 0.85rem;
+  }
+  
+  th, td {
+    padding: 0.5rem;
+  }
+}
+
+/* Emoji support */
+.emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+
+/* Horizontal rules */
+hr {
+  border: none;
+  border-top: 2px solid var(--dark-slate);
+  margin: 3rem 0;
+}
+
+/* Strong and emphasis */
+strong {
+  color: var(--muted-amber);
+  font-weight: 600;
+}
+
+em {
+  color: var(--slate-gray);
+  font-style: italic;
+}
+
+/* Definition lists */
+dt {
+  font-weight: 600;
+  color: var(--soft-cyan);
+  margin-top: 1rem;
+}
+
+dd {
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+

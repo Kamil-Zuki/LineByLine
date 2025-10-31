@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="LineByLine Product Team" />
+  <title>LineByLine: Platform Vision Document</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="pandoc-style.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">LineByLine: Platform Vision Document</h1>
+<p class="author">LineByLine Product Team</p>
+<p class="date">Fri 10/31/2025</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#linebyline-a-platform-for-real-language-acquisition"
+id="toc-linebyline-a-platform-for-real-language-acquisition">LineByLine:
+A Platform for Real Language Acquisition</a>
+<ul>
+<li><a href="#table-of-contents" id="toc-table-of-contents">Table of
+Contents</a></li>
+<li><a href="#executive-summary" id="toc-executive-summary">Executive
+Summary</a>
+<ul>
+<li><a href="#tech-stack" id="toc-tech-stack">Tech Stack</a></li>
+<li><a href="#key-differentiators" id="toc-key-differentiators">Key
+Differentiators</a></li>
+</ul></li>
+<li><a href="#the-problem" id="toc-the-problem">The Problem: Why
+Traditional Apps Fail</a>
+<ul>
+<li><a href="#the-duolingo-trap" id="toc-the-duolingo-trap">The Duolingo
+Trap</a></li>
+<li><a href="#what-learners-actually-need"
+id="toc-what-learners-actually-need">What Learners Actually
+Need</a></li>
+</ul></li>
+<li><a href="#our-solution" id="toc-our-solution">Our Solution:
+Evidence-Based Learning</a>
+<ul>
+<li><a href="#the-linebyline-method" id="toc-the-linebyline-method">The
+LineByLine Method</a></li>
+<li><a href="#why-this-works" id="toc-why-this-works">Why This
+Works</a></li>
+</ul></li>
+<li><a href="#core-philosophy" id="toc-core-philosophy">Core Philosophy
+&amp; Learning Principles</a>
+<ul>
+<li><a href="#comprehensible-input-i1"
+id="toc-comprehensible-input-i1">1. Comprehensible Input (i+1)</a></li>
+<li><a href="#spaced-repetition-fsrs-algorithm"
+id="toc-spaced-repetition-fsrs-algorithm">2. Spaced Repetition (FSRS
+Algorithm)</a></li>
+<li><a href="#comprehensible-output" id="toc-comprehensible-output">3.
+Comprehensible Output</a></li>
+<li><a href="#shadowing-the-ultimate-pronunciation-tool"
+id="toc-shadowing-the-ultimate-pronunciation-tool">4. Shadowing: The
+Ultimate Pronunciation Tool</a></li>
+<li><a href="#desirable-difficulties-bjork"
+id="toc-desirable-difficulties-bjork">5. Desirable Difficulties
+(Bjork)</a></li>
+</ul></li>
+<li><a href="#technical-architecture"
+id="toc-technical-architecture">Technical Architecture</a>
+<ul>
+<li><a href="#system-overview" id="toc-system-overview">System
+Overview</a></li>
+<li><a href="#service-responsibilities"
+id="toc-service-responsibilities">Service Responsibilities</a></li>
+</ul></li>
+<li><a href="#module-ecosystem" id="toc-module-ecosystem">Module
+Ecosystem</a>
+<ul>
+<li><a href="#navigation-structure"
+id="toc-navigation-structure">Navigation Structure</a></li>
+</ul></li>
+<li><a href="#vocabulary-module" id="toc-vocabulary-module">Vocabulary
+Module</a>
+<ul>
+<li><a href="#overview" id="toc-overview">Overview</a></li>
+<li><a href="#features" id="toc-features">Features</a></li>
+</ul></li>
+<li><a href="#speaking-module" id="toc-speaking-module">Speaking
+Module</a>
+<ul>
+<li><a href="#overview-1" id="toc-overview-1">Overview</a></li>
+<li><a href="#tools" id="toc-tools">Tools</a></li>
+</ul></li>
+<li><a href="#writing-module" id="toc-writing-module">Writing Module</a>
+<ul>
+<li><a href="#overview-2" id="toc-overview-2">Overview</a></li>
+<li><a href="#tools-1" id="toc-tools-1">Tools</a></li>
+</ul></li>
+<li><a href="#reading-module" id="toc-reading-module">Reading Module</a>
+<ul>
+<li><a href="#overview-3" id="toc-overview-3">Overview</a></li>
+<li><a href="#features-1" id="toc-features-1">Features</a></li>
+</ul></li>
+<li><a href="#listening-module" id="toc-listening-module">Listening
+Module</a>
+<ul>
+<li><a href="#overview-4" id="toc-overview-4">Overview</a></li>
+<li><a href="#tools-2" id="toc-tools-2">Tools</a></li>
+</ul></li>
+<li><a href="#design-system" id="toc-design-system">Design System: Quiet
+Immersion</a>
+<ul>
+<li><a href="#philosophy" id="toc-philosophy">Philosophy</a></li>
+<li><a href="#color-palette" id="toc-color-palette">Color
+Palette</a></li>
+<li><a href="#typography" id="toc-typography">Typography</a></li>
+<li><a href="#layout-system" id="toc-layout-system">Layout
+System</a></li>
+<li><a href="#ui-components" id="toc-ui-components">UI
+Components</a></li>
+<li><a href="#micro-interactions"
+id="toc-micro-interactions">Micro-Interactions</a></li>
+<li><a href="#accessibility"
+id="toc-accessibility">Accessibility</a></li>
+<li><a href="#performance-targets"
+id="toc-performance-targets">Performance Targets</a></li>
+</ul></li>
+<li><a href="#gamification-strategy"
+id="toc-gamification-strategy">Gamification Strategy</a>
+<ul>
+<li><a href="#philosophy-1" id="toc-philosophy-1">Philosophy</a></li>
+<li><a href="#xp-system" id="toc-xp-system">XP System</a></li>
+<li><a href="#streaks" id="toc-streaks">Streaks</a></li>
+<li><a href="#badges" id="toc-badges">Badges</a></li>
+<li><a href="#leaderboards" id="toc-leaderboards">Leaderboards</a></li>
+<li><a href="#progress-visualization"
+id="toc-progress-visualization">Progress Visualization</a></li>
+</ul></li>
+<li><a href="#ai-personalization" id="toc-ai-personalization">AI &amp;
+Personalization</a>
+<ul>
+<li><a href="#learning-profile" id="toc-learning-profile">Learning
+Profile</a></li>
+<li><a href="#ai-features" id="toc-ai-features">AI Features</a></li>
+</ul></li>
+<li><a href="#roadmap" id="toc-roadmap">Roadmap</a>
+<ul>
+<li><a href="#phase-1-mvp-q4-2025-in-progress"
+id="toc-phase-1-mvp-q4-2025-in-progress">Phase 1: MVP (Q4 2025) ✅ In
+Progress</a></li>
+<li><a href="#phase-2-enhanced-modules-q1-2026"
+id="toc-phase-2-enhanced-modules-q1-2026">Phase 2: Enhanced Modules (Q1
+2026)</a></li>
+<li><a href="#phase-3-community-content-q2-2026"
+id="toc-phase-3-community-content-q2-2026">Phase 3: Community &amp;
+Content (Q2 2026)</a></li>
+<li><a href="#phase-4-advanced-ai-q3-2026"
+id="toc-phase-4-advanced-ai-q3-2026">Phase 4: Advanced AI (Q3
+2026)</a></li>
+<li><a href="#phase-5-mobile-apps-q4-2026"
+id="toc-phase-5-mobile-apps-q4-2026">Phase 5: Mobile Apps (Q4
+2026)</a></li>
+</ul></li>
+<li><a href="#success-metrics" id="toc-success-metrics">Success
+Metrics</a>
+<ul>
+<li><a href="#learning-outcomes-primary"
+id="toc-learning-outcomes-primary">Learning Outcomes (Primary)</a></li>
+<li><a href="#engagement-secondary"
+id="toc-engagement-secondary">Engagement (Secondary)</a></li>
+<li><a href="#community-tertiary" id="toc-community-tertiary">Community
+(Tertiary)</a></li>
+<li><a href="#technical-infrastructure"
+id="toc-technical-infrastructure">Technical (Infrastructure)</a></li>
+</ul></li>
+<li><a href="#conclusion" id="toc-conclusion">Conclusion</a>
+<ul>
+<li><a href="#what-makes-us-different"
+id="toc-what-makes-us-different">What Makes Us Different</a></li>
+<li><a href="#our-promise" id="toc-our-promise">Our Promise</a></li>
+</ul></li>
+<li><a href="#appendices" id="toc-appendices">Appendices</a>
+<ul>
+<li><a href="#a.-glossary-of-language-learning-terms"
+id="toc-a.-glossary-of-language-learning-terms">A. Glossary of Language
+Learning Terms</a></li>
+<li><a href="#b.-recommended-reading" id="toc-b.-recommended-reading">B.
+Recommended Reading</a></li>
+<li><a href="#c.-technical-documentation-links"
+id="toc-c.-technical-documentation-links">C. Technical Documentation
+Links</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="linebyline-a-platform-for-real-language-acquisition">LineByLine:
+A Platform for Real Language Acquisition</h1>
+<blockquote>
+<p><strong>Version 1.0</strong> | October 2025<br />
+<em>“Language learning that respects science, not engagement
+metrics.”</em></p>
+</blockquote>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol type="1">
+<li><a href="#executive-summary">Executive Summary</a></li>
+<li><a href="#the-problem">The Problem: Why Traditional Apps
+Fail</a></li>
+<li><a href="#our-solution">Our Solution: Evidence-Based
+Learning</a></li>
+<li><a href="#core-philosophy">Core Philosophy &amp; Learning
+Principles</a></li>
+<li><a href="#technical-architecture">Technical Architecture</a></li>
+<li><a href="#module-ecosystem">Module Ecosystem</a>
+<ul>
+<li><a href="#vocabulary-module">Vocabulary Module</a></li>
+<li><a href="#speaking-module">Speaking Module</a></li>
+<li><a href="#writing-module">Writing Module</a></li>
+<li><a href="#reading-module">Reading Module</a></li>
+<li><a href="#listening-module">Listening Module</a></li>
+</ul></li>
+<li><a href="#design-system">Design System: Quiet Immersion</a></li>
+<li><a href="#gamification-strategy">Gamification Strategy</a></li>
+<li><a href="#ai-personalization">AI &amp; Personalization</a></li>
+<li><a href="#roadmap">Roadmap</a></li>
+<li><a href="#success-metrics">Success Metrics</a></li>
+</ol>
+<hr />
+<h2 id="executive-summary">Executive Summary</h2>
+<p><strong>LineByLine</strong> is a comprehensive language learning
+platform built on proven acquisition methods, not dopamine loops. Unlike
+Duolingo’s gamification-first approach, we prioritize:</p>
+<ul>
+<li><strong>Comprehensible Input</strong> (Krashen’s i+1
+hypothesis)</li>
+<li><strong>Spaced Repetition</strong> (FSRS algorithm for optimal
+retention)</li>
+<li><strong>Output Practice</strong> (speaking &amp; writing with
+immediate feedback)</li>
+<li><strong>Real-world content</strong> (not isolated sentences)</li>
+<li><strong>Community learning</strong> (collaborative decks, shared
+progress)</li>
+</ul>
+<h3 id="tech-stack">Tech Stack</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 40%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend</strong></td>
+<td>Next.js (React)</td>
+<td>Fast, SEO-friendly, PWA-ready</td>
+</tr>
+<tr>
+<td><strong>Backend</strong></td>
+<td>ASP.NET Core</td>
+<td>Robust API, auth, data management</td>
+</tr>
+<tr>
+<td><strong>ML/AI Engine</strong></td>
+<td>Python (FastAPI + gRPC)</td>
+<td>FSRS scheduling, speech processing</td>
+</tr>
+<tr>
+<td><strong>Cache/Queue</strong></td>
+<td>Redis</td>
+<td>Session state, real-time features</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>PostgreSQL</td>
+<td>User data, decks, progress</td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td>Docker + Compose</td>
+<td>Consistent dev/prod environments</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-differentiators">Key Differentiators</h3>
+<ol type="1">
+<li><strong>Git-like deck versioning</strong> — fork, commit, merge
+vocabulary sets</li>
+<li><strong>FSRS 4.5 algorithm</strong> — scientifically optimal review
+scheduling</li>
+<li><strong>Modular skill system</strong> — master one skill at a
+time</li>
+<li><strong>Comprehensible input engine</strong> — content adapts to
+your exact level</li>
+<li><strong>Community-driven content</strong> — subscribe to
+expert-curated decks</li>
+</ol>
+<hr />
+<h2 id="the-problem">The Problem: Why Traditional Apps Fail</h2>
+<h3 id="the-duolingo-trap">The Duolingo Trap</h3>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 34%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>What They Do</th>
+<th>Why It Fails</th>
+<th>Science Says</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gamification &gt; Learning</strong></td>
+<td>Streaks become the goal, not fluency</td>
+<td>Extrinsic motivation fades; intrinsic motivation (understanding)
+lasts</td>
+</tr>
+<tr>
+<td><strong>Isolated sentences</strong></td>
+<td>“The apple is red” teaches nothing useful</td>
+<td>Languages need context (usage-based theory)</td>
+</tr>
+<tr>
+<td><strong>Translation exercises</strong></td>
+<td>Thinking through L1 slows acquisition</td>
+<td>Direct L2 → meaning mapping is faster (Krashen)</td>
+</tr>
+<tr>
+<td><strong>Fixed review intervals</strong></td>
+<td>Same timing for everyone</td>
+<td>Individuals forget at different rates (Ebbinghaus curve varies)</td>
+</tr>
+<tr>
+<td><strong>No output practice</strong></td>
+<td>Passive recognition ≠ active recall</td>
+<td>Output forces deeper processing (Swain’s Output Hypothesis)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-learners-actually-need">What Learners Actually Need</h3>
+<p>Based on research from: - <strong>Stephen Krashen</strong> (Input
+Hypothesis) - <strong>Paul Nation</strong> (Vocabulary acquisition) -
+<strong>Merrill Swain</strong> (Output Hypothesis) - <strong>Robert
+Bjork</strong> (Desirable Difficulties)</p>
+<p><strong>Successful acquisition requires:</strong></p>
+<ol type="1">
+<li><strong>Massive comprehensible input</strong> (listening/reading at
+i+1 level)</li>
+<li><strong>Spaced, interleaved practice</strong> (not massed
+repetition)</li>
+<li><strong>Forced output</strong> (speaking/writing with feedback)</li>
+<li><strong>Emotional engagement</strong> (stories, not sentences)</li>
+<li><strong>Autonomous learning</strong> (learner controls content &amp;
+pace)</li>
+</ol>
+<hr />
+<h2 id="our-solution">Our Solution: Evidence-Based Learning</h2>
+<h3 id="the-linebyline-method">The LineByLine Method</h3>
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│  INPUT (60% of time)                                    │
+│  ├─ Listening: Podcasts, dialogues (with/without subs) │
+│  └─ Reading: Graded texts, authentic articles          │
+├─────────────────────────────────────────────────────────┤
+│  VOCABULARY (25% of time)                               │
+│  └─ FSRS-scheduled flashcards with context sentences   │
+├─────────────────────────────────────────────────────────┤
+│  OUTPUT (15% of time)                                   │
+│  ├─ Speaking: Shadowing, conversation practice         │
+│  └─ Writing: Sentence construction, journaling         │
+└─────────────────────────────────────────────────────────┘</code></pre>
+<h3 id="why-this-works">Why This Works</h3>
+<ol type="1">
+<li><strong>Input-driven</strong> — 60% focus on listening/reading
+builds intuition</li>
+<li><strong>Context-rich</strong> — vocabulary taught in sentences, not
+isolation</li>
+<li><strong>Personalized spacing</strong> — FSRS adapts to YOUR
+memory</li>
+<li><strong>Output forces consolidation</strong> — speaking/writing
+reveals gaps</li>
+<li><strong>Intrinsic motivation</strong> — progress measured in
+comprehension, not XP</li>
+</ol>
+<hr />
+<h2 id="core-philosophy">Core Philosophy &amp; Learning Principles</h2>
+<h3 id="comprehensible-input-i1">1. Comprehensible Input (i+1)</h3>
+<p><strong>Definition:</strong> Expose learners to content slightly
+above their current level.</p>
+<p><strong>Implementation:</strong> - <strong>Reading Module:</strong>
+Texts auto-graded by known vocabulary % - Green: 98%+ known words (easy
+practice) - Yellow: 90-97% known (optimal learning zone) - Red: &lt;90%
+known (frustration zone) - <strong>Listening Module:</strong> AI adjusts
+speech rate (0.7x → 1.3x) - <strong>Vocabulary Module:</strong> New
+words appear in familiar sentence structures</p>
+<p><strong>Example:</strong></p>
+<pre><code>Current level: A2 (knows ~1500 words)
+
+✅ Good input: &quot;Yesterday, María went to the market and bought fresh vegetables.&quot;
+❌ Bad input: &quot;The photosynthetic process converts solar energy into chemical energy.&quot;</code></pre>
+<h3 id="spaced-repetition-fsrs-algorithm">2. Spaced Repetition (FSRS
+Algorithm)</h3>
+<p><strong>Why not Anki’s SM-2?</strong></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Release</th>
+<th>Strengths</th>
+<th>Weaknesses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SM-2 (Anki)</td>
+<td>1988</td>
+<td>Simple, proven</td>
+<td>Fixed formula, no personalization</td>
+</tr>
+<tr>
+<td><strong>FSRS 4.5</strong></td>
+<td>2023</td>
+<td>Machine learning, adapts per user</td>
+<td>Requires initial calibration</td>
+</tr>
+</tbody>
+</table>
+<p><strong>FSRS learns:</strong> - How quickly YOU forget specific card
+types - Your optimal review intervals (not averages) - Which cards need
+more frequent review</p>
+<p><strong>Implementation:</strong> - Python service
+(<code>@inclusive</code>) handles scheduling - Redis caches due cards
+for instant response - ASP.NET backend (<code>@personal-vocab</code>)
+logs reviews</p>
+<h3 id="comprehensible-output">3. Comprehensible Output</h3>
+<p><strong>Theory (Swain, 1985):</strong> Producing language
+(speaking/writing) helps learners: - Notice gaps in knowledge - Test
+hypotheses about grammar - Develop fluency (automaticity)</p>
+<p><strong>Our Output Tools:</strong></p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 33%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Skill</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shadowing</strong></td>
+<td>Speaking</td>
+<td>Repeat native audio with 0-1s delay</td>
+</tr>
+<tr>
+<td><strong>Voice Journaling</strong></td>
+<td>Speaking</td>
+<td>2-min daily audio diary (AI feedback)</td>
+</tr>
+<tr>
+<td><strong>Sentence Mining</strong></td>
+<td>Writing</td>
+<td>Write 3 sentences using new vocabulary</td>
+</tr>
+<tr>
+<td><strong>Conversation Simulator</strong></td>
+<td>Speaking</td>
+<td>AI partner adapts to your level</td>
+</tr>
+</tbody>
+</table>
+<h3 id="shadowing-the-ultimate-pronunciation-tool">4. Shadowing: The
+Ultimate Pronunciation Tool</h3>
+<p><strong>What is Shadowing?</strong></p>
+<p>Listen to audio (speech, podcast, dialogue) and simultaneously repeat
+what you hear—matching: - Pronunciation - Intonation - Rhythm -
+Emotion</p>
+<p><strong>Cognitive Benefits:</strong> 1. <strong>Phonological loop
+training</strong> — improves working memory 2. <strong>Prosody
+acquisition</strong> — natural speech patterns 3.
+<strong>Automaticity</strong> — reduces cognitive load over time</p>
+<p><strong>Implementation:</strong></p>
+<pre><code>User flow:
+1. Select audio (30s-2min clip)
+2. Listen 1x without speaking (comprehension check)
+3. Shadow 3x:
+   - First: Focus on pronunciation
+   - Second: Match rhythm/intonation
+   - Third: Add emotion/naturalness
+4. Record yourself (optional)
+5. AI compares your audio to native (pronunciation score)</code></pre>
+<p><strong>Content Library:</strong> - Movie/TV dialogues (Friends,
+Breaking Bad, etc.) - TED Talk snippets - Podcast clips (news,
+storytelling) - Shadowing-specific lessons (minimal music, clear
+speech)</p>
+<h3 id="desirable-difficulties-bjork">5. Desirable Difficulties
+(Bjork)</h3>
+<p><strong>Principle:</strong> Learning should feel challenging, not
+easy.</p>
+<p><strong>What We Avoid:</strong> - ❌ Multiple choice (too easy,
+encourages guessing) - ❌ Translation crutches (prevents direct L2
+thinking) - ❌ Immediate hints (robs opportunity to struggle)</p>
+<p><strong>What We Embrace:</strong> - ✅ Production (type/speak the
+answer) - ✅ Interleaved practice (mix vocab, grammar, listening) - ✅
+Delayed feedback (think before seeing answer)</p>
+<hr />
+<h2 id="technical-architecture">Technical Architecture</h2>
+<h3 id="system-overview">System Overview</h3>
+<pre><code>┌──────────────────────────────────────────────────────────────┐
+│                    FRONTEND (Next.js)                        │
+│  ┌────────────┐  ┌────────────┐  ┌────────────┐            │
+│  │ Vocabulary │  │  Speaking  │  │  Reading   │            │
+│  │   Module   │  │   Module   │  │   Module   │  + 2 more  │
+│  └────────────┘  └────────────┘  └────────────┘            │
+└────────────────────────┬─────────────────────────────────────┘
+                         │ REST/WebSocket
+┌────────────────────────▼─────────────────────────────────────┐
+│               BACKEND (ASP.NET Core)                         │
+│  • User auth (JWT)                                           │
+│  • Deck management (CRUD, versioning)                        │
+│  • Progress tracking (XP, streaks, badges)                   │
+│  • Social features (leaderboards, friends)                   │
+└────────────┬──────────────────────────┬──────────────────────┘
+             │                          │
+             │ gRPC                     │ Redis pub/sub
+             │                          │
+┌────────────▼──────────────┐  ┌───────▼──────────────────────┐
+│  AI ENGINE (Python)       │  │  REDIS                       │
+│  • FSRS scheduling        │  │  • Session cache             │
+│  • Speech-to-text         │  │  • Real-time updates         │
+│  • Text difficulty calc.  │  │  • Due card queue            │
+│  • Pronunciation scoring  │  │                              │
+└───────────────────────────┘  └──────────────────────────────┘
+             │
+             │ PostgreSQL
+┌────────────▼──────────────┐
+│  DATABASE                 │
+│  • Users, decks, cards    │
+│  • Review history (FSRS)  │
+│  • Progress logs          │
+└───────────────────────────┘</code></pre>
+<h3 id="service-responsibilities">Service Responsibilities</h3>
+<h4 id="frontend-next.js">1. Frontend (Next.js)</h4>
+<p><strong>Location:</strong> <code>line-by-line-ui/</code></p>
+<p><strong>Features:</strong> - Server-side rendering for SEO - PWA
+(offline study mode) - Real-time updates via WebSocket - Responsive
+design (mobile-first)</p>
+<p><strong>Key Pages:</strong></p>
+<pre><code>/dashboard           → Module selector, daily goal
+/vocabulary/study    → Flashcard review (FSRS)
+/vocabulary/browse   → Deck marketplace
+/speaking/shadow     → Shadowing practice
+/reading/library     → Graded texts
+/profile/stats       → Progress graphs, streaks</code></pre>
+<h4 id="backend-asp.net-core">2. Backend (ASP.NET Core)</h4>
+<p><strong>Location:</strong> <code>personal-vocab/</code></p>
+<p><strong>Endpoints:</strong></p>
+<pre><code>/api/auth              → Register, login, JWT refresh
+/api/decks             → CRUD, fork, commit, merge
+/api/cards             → Add, edit, bulk import
+/api/study             → Get due cards, submit review
+/api/progress          → XP, badges, streaks
+/api/social            → Friends, leaderboards
+/api/content           → Texts, audio files (CDN proxy)</code></pre>
+<p><strong>Database Schema (Key Tables):</strong></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Users          → <span class="kw">id</span>, email, xp, streak_count, settings</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Decks          → <span class="kw">id</span>, owner_id, parent_deck_id (<span class="cf">for</span> forks), visibility</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Cards          → <span class="kw">id</span>, deck_id, front, back, context_sentence</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Reviews        → <span class="kw">id</span>, card_id, user_id, rating, fsrs_state</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Subscriptions  → user_id, deck_id (<span class="kw">following</span> <span class="kw">public</span> decks)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Content        → <span class="kw">id</span>, <span class="kw">type</span> (text<span class="op">/</span>audio), difficulty, language</span></code></pre></div>
+<h4 id="ai-engine-python-grpc">3. AI Engine (Python + gRPC)</h4>
+<p><strong>Location:</strong> <code>inclusive/</code></p>
+<p><strong>Services:</strong> 1. <strong>FSRS Scheduler</strong> -
+Calculates next review date per card - Updates card parameters
+(difficulty, stability) - Library:
+<code>open-spaced-repetition/py-fsrs</code></p>
+<ol start="2" type="1">
+<li><strong>Speech Processing</strong>
+<ul>
+<li>Speech-to-text (Whisper API or Azure)</li>
+<li>Pronunciation scoring (phoneme comparison)</li>
+<li>Voice activity detection</li>
+</ul></li>
+<li><strong>Content Analysis</strong>
+<ul>
+<li>Text difficulty scoring (based on frequency lists)</li>
+<li>Sentence mining (extract example sentences)</li>
+<li>Vocabulary extraction</li>
+</ul></li>
+</ol>
+<p><strong>gRPC Proto Definition:</strong></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode protobuf"><code class="sourceCode protobuf"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">service</span> FSRSService {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">rpc</span> ScheduleCard(CardState) <span class="kw">returns</span> (NextReview);</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">rpc</span> BatchSchedule(CardList) <span class="kw">returns</span> (ReviewSchedule);</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">service</span> SpeechService {</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">rpc</span> TranscribeAudio(AudioData) <span class="kw">returns</span> (Transcript);</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">rpc</span> ScorePronunciation(PronunciationRequest) <span class="kw">returns</span> (Score);</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h2 id="module-ecosystem">Module Ecosystem</h2>
+<h3 id="navigation-structure">Navigation Structure</h3>
+<pre><code>┌─────────────────────────────────────────┐
+│  SIDEBAR (Persistent)                   │
+│  ┌─────────────────────────────────┐   │
+│  │  📚 Vocabulary                  │   │
+│  │  🎤 Speaking                    │   │
+│  │  ✍️  Writing                     │   │
+│  │  📖 Reading                     │   │
+│  │  🎧 Listening                   │   │
+│  │  ────────────────────           │   │
+│  │  📊 Progress                    │   │
+│  │  👥 Community                   │   │
+│  │  ⚙️  Settings                    │   │
+│  └─────────────────────────────────┘   │
+└─────────────────────────────────────────┘</code></pre>
+<hr />
+<h2 id="vocabulary-module">Vocabulary Module</h2>
+<h3 id="overview">Overview</h3>
+<p>The foundation of language learning—spaced repetition flashcards
+powered by FSRS.</p>
+<h3 id="features">Features</h3>
+<h4 id="deck-management">1. Deck Management</h4>
+<p><strong>Personal Decks:</strong> - Create custom decks (e.g.,
+“Business Spanish”, “Anime Vocabulary”) - Import from CSV, Anki (.apkg),
+or text files - Tag cards (grammar, slang, formal, etc.)</p>
+<p><strong>Public Deck Marketplace:</strong> - Browse community-created
+decks - Preview first 10 cards before subscribing - See creator’s study
+stats (credibility)</p>
+<p><strong>Git-like Versioning:</strong></p>
+<pre><code>linebyline/spanish-1000-words (master)
+├─ kamil/spanish-1000-words-modified (fork)
+│  └─ Added 50 regional words
+│  └─ Fixed 3 translation errors
+└─ maria/spanish-1000-words-business (fork)
+   └─ Specialized for business contexts</code></pre>
+<p><strong>Actions:</strong> - <strong>Fork:</strong> Copy deck to your
+account - <strong>Commit:</strong> Save changes with message (“Added
+medical terms”) - <strong>Pull Request:</strong> Suggest changes to
+original deck - <strong>Merge:</strong> Original creator accepts your
+changes</p>
+<h4 id="study-session">2. Study Session</h4>
+<p><strong>Review Flow:</strong></p>
+<pre><code>1. Show card front (e.g., &quot;La manzana&quot;)
+2. User recalls meaning (mental effort)
+3. Flip card → see back (&quot;The apple&quot; + example sentence)
+4. Self-rate difficulty:
+   - Again (complete blank)
+   - Hard (struggled to recall)
+   - Good (recalled correctly)
+   - Easy (instant recognition)
+5. FSRS calculates next review (30m → 3d → 2w → 4mo...)</code></pre>
+<p><strong>Card Types:</strong></p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 24%" />
+<col style="width: 20%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Type</th>
+<th>Front</th>
+<th>Back</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vocab → Meaning</strong></td>
+<td>L2 word</td>
+<td>L1 definition + sentence</td>
+<td>Recognition</td>
+</tr>
+<tr>
+<td><strong>Meaning → Vocab</strong></td>
+<td>L1 definition</td>
+<td>L2 word (type it)</td>
+<td>Production</td>
+</tr>
+<tr>
+<td><strong>Audio → Text</strong></td>
+<td>Audio clip</td>
+<td>Written word</td>
+<td>Listening</td>
+</tr>
+<tr>
+<td><strong>Image → Vocab</strong></td>
+<td>Picture</td>
+<td>L2 word</td>
+<td>Direct association (no L1)</td>
+</tr>
+<tr>
+<td><strong>Cloze</strong></td>
+<td>“I ____ to school”</td>
+<td>“I <strong>went</strong> to school”</td>
+<td>Grammar/usage</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contextual Learning:</strong> Every card includes: - Example
+sentence (shows word in use) - Audio pronunciation (native speaker) -
+Mnemonic hints (optional, user-created)</p>
+<h4 id="advanced-features">3. Advanced Features</h4>
+<p><strong>Sentence Mining:</strong> - Import sentences from
+reading/listening content - Auto-generate flashcards from highlighted
+words - AI suggests best context sentence</p>
+<p><strong>Leech Detection:</strong> - Cards reviewed 8+ times without
+progress → flagged - Suggests: rewrite card, add mnemonic, or
+suspend</p>
+<p><strong>Heatmap Progress:</strong></p>
+<pre><code>GitHub-style contribution graph:
+
+  M  T  W  T  F  S  S
+ ██ ██ ░░ ██ ██ ██ ░░  ← Week 1
+ ██ ██ ██ ██ ░░ ██ ██  ← Week 2
+
+Dark = &gt;20 cards reviewed
+Light = 1-20 cards
+Empty = 0 cards (streak broken!)</code></pre>
+<hr />
+<h2 id="speaking-module">Speaking Module</h2>
+<h3 id="overview-1">Overview</h3>
+<p>Move from silent learner to confident speaker through progressive
+output practice.</p>
+<h3 id="tools">Tools</h3>
+<h4 id="shadowing-studio">1. Shadowing Studio</h4>
+<p><strong>Purpose:</strong> Master pronunciation, intonation, and
+rhythm.</p>
+<p><strong>Content Types:</strong> - <strong>Dialogues:</strong>
+Movie/TV scenes (2-person conversations) - <strong>Monologues:</strong>
+TED Talks, speeches (1-person) - <strong>Music:</strong> Songs with
+clear lyrics (karaoke mode) - <strong>Podcasts:</strong> News clips,
+storytelling</p>
+<p><strong>Interface:</strong></p>
+<pre><code>┌────────────────────────────────────────────┐
+│  🎬 Friends S01E01 - Coffee Shop Scene     │
+│  ──────────────────────────────────────────│
+│                                            │
+│  [====●================] 0:32 / 1:45      │
+│                                            │
+│  🔊 &quot;How you doin&#39;?&quot;                       │
+│  👂 Listen │ 🎤 Shadow │ 📊 Compare        │
+│                                            │
+│  Transcript (Toggle):                      │
+│  Rachel: &quot;How you doin&#39;?&quot;                  │
+│  Joey: &quot;How YOU doin&#39;?&quot;                    │
+└────────────────────────────────────────────┘</code></pre>
+<p><strong>Shadowing Modes:</strong></p>
+<ol type="1">
+<li><strong>Chorus Mode:</strong> Audio + your voice simultaneously</li>
+<li><strong>Delay Mode:</strong> Hear phrase → repeat 1s later</li>
+<li><strong>Solo Mode:</strong> Muted audio, you fill the silence</li>
+</ol>
+<p><strong>AI Feedback:</strong> - Pronunciation score (0-100) -
+Highlighted mispronounced phonemes - Rhythm match (visual waveform
+comparison)</p>
+<h4 id="conversation-simulator">2. Conversation Simulator</h4>
+<p><strong>Purpose:</strong> Practice real dialogues without human
+pressure.</p>
+<p><strong>How It Works:</strong></p>
+<pre><code>AI Persona: Maria (Spanish teacher, friendly, patient)
+
+Maria: &quot;Hola! ¿Cómo estás hoy?&quot;
+  ↓
+[You speak your response via microphone]
+  ↓
+AI transcribes + analyzes your Spanish
+  ↓
+Maria: &quot;¡Bien! Escuché que dijiste &#39;estoy cansado&#39;. 
+        ¿Trabajaste mucho hoy?&quot;</code></pre>
+<p><strong>Difficulty Levels:</strong> - <strong>A1:</strong> Simple
+Q&amp;A (name, hobbies, weather) - <strong>B1:</strong> Roleplay
+(restaurant, shopping, directions) - <strong>C1:</strong> Debate topics
+(politics, philosophy, ethics)</p>
+<p><strong>Adaptive Conversation:</strong> - AI detects hesitation →
+simplifies next question - AI detects fluency → increases complexity</p>
+<h4 id="voice-journaling">3. Voice Journaling</h4>
+<p><strong>Purpose:</strong> Build speaking confidence through daily
+reflection.</p>
+<p><strong>Prompt Examples:</strong> - “Describe your day in 2 minutes.”
+- “What’s a childhood memory?” - “Convince me to visit your
+hometown.”</p>
+<p><strong>AI Analysis:</strong> - Speech rate (words per minute) -
+Filler words (um, uh, like) frequency - Grammar errors (auto-detected) -
+Vocabulary diversity (unique words used)</p>
+<p><strong>Progress Graph:</strong></p>
+<pre><code>Speaking Fluency Over 30 Days
+
+150 wpm ┤                            ╭─●
+        │                        ╭───╯
+100 wpm ┤                 ╭──●──╯
+        │          ╭──●───╯
+ 50 wpm ┤    ●─●───╯
+        └────────────────────────────
+        Day 1  10  20  30</code></pre>
+<hr />
+<h2 id="writing-module">Writing Module</h2>
+<h3 id="overview-2">Overview</h3>
+<p>Develop written fluency from sentence construction to essay
+composition.</p>
+<h3 id="tools-1">Tools</h3>
+<h4 id="sentence-builder">1. Sentence Builder</h4>
+<p><strong>Purpose:</strong> Learn grammar patterns through guided
+construction.</p>
+<p><strong>Exercise Types:</strong></p>
+<p><strong>Scrambled Sentences:</strong></p>
+<pre><code>Words: [el, manzana, comí, ayer, la]
+Build: &quot;Ayer comí la manzana.&quot;
+Feedback: ✅ Perfect! (Subject-Verb-Object order)</code></pre>
+<p><strong>Fill-in-the-Blank:</strong></p>
+<pre><code>&quot;Gestern ____ ich einen Apfel.&quot; (essen)
+Answer: &quot;Gestern aß ich einen Apfel.&quot;
+Feedback: ✅ Correct past tense (Präteritum)</code></pre>
+<p><strong>Translation (Input → Output):</strong></p>
+<pre><code>L1: &quot;I would have gone if I had known.&quot;
+L2: [User types French translation]
+AI: Checks grammar + suggests alternatives</code></pre>
+<h4 id="composition-studio">2. Composition Studio</h4>
+<p><strong>Purpose:</strong> Write longer texts (paragraphs, essays)
+with AI feedback.</p>
+<p><strong>Workflow:</strong></p>
+<pre><code>1. Choose topic: &quot;Describe your ideal weekend&quot;
+2. Write freely (200-500 words)
+3. Submit for analysis
+4. Receive feedback:
+   - Grammar errors (highlighted)
+   - Vocabulary suggestions (synonyms for overused words)
+   - Structure critique (intro-body-conclusion)
+5. Revise + resubmit</code></pre>
+<p><strong>AI Feedback Example:</strong></p>
+<pre><code>Original: &quot;I like very much pizza. Is delicious.&quot;
+
+Feedback:
+❌ Word order: &quot;I like pizza very much.&quot; (adverb placement)
+❌ Article missing: &quot;It is delicious.&quot;
+💡 Richer vocabulary: &quot;I adore pizza. It&#39;s delectable.&quot;</code></pre>
+<h4 id="daily-writing-challenges">3. Daily Writing Challenges</h4>
+<p><strong>Purpose:</strong> Build writing habit through
+micro-tasks.</p>
+<p><strong>Examples:</strong> - <strong>Monday:</strong> Write 3
+sentences using today’s vocabulary - <strong>Wednesday:</strong>
+Describe this image in 50 words (photo provided) -
+<strong>Friday:</strong> Write a letter to your future self (100
+words)</p>
+<p><strong>Gamification:</strong> - 7-day writing streak = +500 XP -
+Monthly challenge winner = Badge + featured on homepage</p>
+<hr />
+<h2 id="reading-module">Reading Module</h2>
+<h3 id="overview-3">Overview</h3>
+<p>Massive comprehensible input through graded texts and authentic
+content.</p>
+<h3 id="features-1">Features</h3>
+<h4 id="library-graded-readers">1. Library (Graded Readers)</h4>
+<p><strong>Content Categories:</strong> - Short stories (5-10 min reads)
+- News articles (adapted for learners) - Book chapters (Harry Potter,
+classics in L2) - Blog posts (travel, tech, lifestyle)</p>
+<p><strong>Difficulty Grading:</strong></p>
+<pre><code>AI analyzes text:
+- Known vocabulary % (based on your vocab cards)
+- Sentence complexity (clauses per sentence)
+- Grammar structures (tenses, subjunctive, etc.)
+
+Result:
+🟢 Comfortable (98%+ known words)
+🟡 Learning Zone (90-97% known)
+🔴 Challenging (&lt;90% known)</code></pre>
+<p><strong>Reading Interface:</strong></p>
+<pre><code>┌─────────────────────────────────────────────┐
+│  📖 El Principito - Capítulo 1              │
+│  Level: B1 | 📊 92% known words             │
+├─────────────────────────────────────────────┤
+│                                             │
+│  Cuando yo tenía seis años vi una vez una  │
+│  magnífica [lámina] en un libro...         │
+│         ▲                                   │
+│         └─ Click word → see definition     │
+│            + Add to deck (one tap)          │
+│                                             │
+│  [Previous] [Bookmark] [Next]               │
+└─────────────────────────────────────────────┘</code></pre>
+<p><strong>Interactive Features:</strong> -
+<strong>Click-to-define:</strong> Hover any word → instant translation -
+<strong>Add to deck:</strong> Save unknown words → auto-creates
+flashcard - <strong>Text-to-speech:</strong> Hear entire text
+(adjustable speed) - <strong>Progress tracking:</strong> Bookmarks,
+reading time, words learned</p>
+<h4 id="sentence-mining-tool">2. Sentence Mining Tool</h4>
+<p><strong>Purpose:</strong> Extract vocabulary from authentic content
+YOU care about.</p>
+<p><strong>Workflow:</strong></p>
+<pre><code>1. Paste text (article, lyrics, book passage)
+2. AI highlights words not in your deck
+3. Select words to learn
+4. AI generates flashcards with:
+   - Word + definition
+   - Original sentence (context)
+   - Audio pronunciation
+5. Cards added to deck &quot;Mined from [Source Name]&quot;</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code>Input text: &quot;Le chat noir dormait sur le canapé.&quot;
+
+Unknown words: canapé
+
+Generated card:
+Front: &quot;canapé&quot;
+Back: &quot;sofa / couch&quot;
+Context: &quot;Le chat noir dormait sur le canapé.&quot;
+Audio: [🔊 native speaker]</code></pre>
+<h4 id="parallel-texts">3. Parallel Texts</h4>
+<p><strong>Purpose:</strong> Read L2 text with optional L1 translation
+side-by-side.</p>
+<p><strong>Interface:</strong></p>
+<pre><code>┌──────────────────┬──────────────────┐
+│  Spanish (L2)    │  English (L1)    │
+├──────────────────┼──────────────────┤
+│  Era una noche   │  It was a dark   │
+│  oscura y        │  and stormy      │
+│  tormentosa.     │  night.          │
+│                  │                  │
+│  [Hidden by default →               │
+│   Click to reveal if stuck]         │
+└──────────────────┴──────────────────┘</code></pre>
+<p><strong>Best Practice:</strong> - Read L2 paragraph first
+(comprehension test) - Only check L1 if completely lost - Goal: Wean off
+L1 over time</p>
+<hr />
+<h2 id="listening-module">Listening Module</h2>
+<h3 id="overview-4">Overview</h3>
+<p>Train your ear through progressive listening challenges—from scripted
+dialogues to authentic podcasts.</p>
+<h3 id="tools-2">Tools</h3>
+<h4 id="dialogue-practice">1. Dialogue Practice</h4>
+<p><strong>Purpose:</strong> Master conversational listening.</p>
+<p><strong>Content:</strong> - Coffee shop orders - Doctor appointments
+- Job interviews - Casual friend chats</p>
+<p><strong>Exercise Flow:</strong></p>
+<pre><code>1. Listen to 30s dialogue (no text)
+2. Answer comprehension questions:
+   - &quot;What did Maria order?&quot;
+   - &quot;Why is Carlos late?&quot;
+3. Listen again with transcript
+4. Repeat until 80%+ comprehension</code></pre>
+<p><strong>Difficulty Adjustments:</strong> - Speed: 0.7x (beginner) →
+1.0x (intermediate) → 1.3x (advanced) - Accent: Standard → regional
+dialects - Background noise: Clean audio → café ambiance</p>
+<h4 id="podcast-library">2. Podcast Library</h4>
+<p><strong>Purpose:</strong> Consume authentic content for advanced
+learners.</p>
+<p><strong>Categories:</strong> - <strong>Learner Podcasts:</strong>
+Slow speech, clear enunciation (Coffee Break Spanish, etc.) -
+<strong>Native Content:</strong> True crime, comedy, news (real-world
+listening)</p>
+<p><strong>Features:</strong> - Transcript toggle (on/off) - Adjustable
+playback speed - Bookmarking (save position + timestamp note) -
+Vocabulary extraction (mine words from episodes)</p>
+<p><strong>Recommended Strategy:</strong></p>
+<pre><code>Beginner (A1-A2):
+  └─ Learner podcasts only (100% comprehension goal)
+
+Intermediate (B1-B2):
+  └─ 70% learner, 30% native content (focus on gist)
+
+Advanced (C1-C2):
+  └─ 100% native content (full comprehension + idioms)</code></pre>
+<h4 id="dictation-exercises">3. Dictation Exercises</h4>
+<p><strong>Purpose:</strong> Test listening precision.</p>
+<p><strong>How It Works:</strong></p>
+<pre><code>1. Hear sentence: &quot;Je voudrais un café, s&#39;il vous plaît.&quot;
+2. Type what you heard (no replay)
+3. Submit
+4. AI compares:
+   ✅ Correct: 100%
+   ⚠️  Minor typo: &quot;Je voudrais un cafe&quot; (95%, missing accent)
+   ❌ Significant error: &quot;Je voodray un café&quot; (60%)
+5. Replay + see correct text</code></pre>
+<p><strong>Difficulty Levels:</strong> - <strong>L1:</strong> Single
+sentences (8-12 words) - <strong>L2:</strong> Short paragraphs (50
+words) - <strong>L3:</strong> News clips (200 words, normal speed)</p>
+<hr />
+<h2 id="design-system">Design System: Quiet Immersion</h2>
+<h3 id="philosophy">Philosophy</h3>
+<blockquote>
+<p><strong>“Learning should feel like breathing — effortless, private,
+and deeply satisfying.”</strong></p>
+</blockquote>
+<p><strong>Goals:</strong> 1. <strong>Zero eye strain</strong> → Dark
+mode default, low blue light 2. <strong>Zero distraction</strong> →
+Single-focus layouts, no clutter 3. <strong>Zero friction</strong> →
+Keyboard shortcuts, instant load times 4. <strong>Maximum
+immersion</strong> → Floating cards, spatial depth</p>
+<hr />
+<h3 id="color-palette">Color Palette</h3>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 28%" />
+<col style="width: 20%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Role</th>
+<th>Color</th>
+<th>Hex</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Background</strong></td>
+<td>Void Black</td>
+<td><code>#0a0a0a</code></td>
+<td>Main canvas</td>
+</tr>
+<tr>
+<td><strong>Card Base</strong></td>
+<td>Deep Indigo Glass</td>
+<td><code>rgba(30, 27, 75, 0.6)</code></td>
+<td>Content containers</td>
+</tr>
+<tr>
+<td><strong>Text (Primary)</strong></td>
+<td>Frost White</td>
+<td><code>#f8fafc</code></td>
+<td>Body text</td>
+</tr>
+<tr>
+<td><strong>Text (Secondary)</strong></td>
+<td>Slate Gray</td>
+<td><code>#94a3b8</code></td>
+<td>Labels, metadata</td>
+</tr>
+<tr>
+<td><strong>Accent (Success)</strong></td>
+<td>Soft Cyan</td>
+<td><code>#67e8f9</code></td>
+<td>Correct answers, progress</td>
+</tr>
+<tr>
+<td><strong>Accent (Warm)</strong></td>
+<td>Muted Amber</td>
+<td><code>#fbbf24</code></td>
+<td>XP, achievements</td>
+</tr>
+<tr>
+<td><strong>Accent (Error)</strong></td>
+<td>Soft Coral</td>
+<td><code>#fb7185</code></td>
+<td>Wrong answers (not harsh red)</td>
+</tr>
+<tr>
+<td><strong>Borders</strong></td>
+<td>Dark Slate</td>
+<td><code>#1e293b</code></td>
+<td>Subtle dividers</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Glassmorphism Effect:</strong></p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.card</span> {</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background</span><span class="ch">:</span> <span class="fu">rgba(</span><span class="dv">30</span><span class="op">,</span> <span class="dv">27</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">0.6</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">backdrop-filter</span><span class="ch">:</span> <span class="fu">blur(</span><span class="dv">12</span><span class="dt">px</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="fu">rgba(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">0.1</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">8</span><span class="dt">px</span> <span class="dv">32</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.4</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h3 id="typography">Typography</h3>
+<p><strong>Font Stack:</strong></p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span><span class="ch">:</span> <span class="st">&#39;Inter&#39;</span><span class="op">,</span> <span class="dv">-apple-system</span><span class="op">,</span> <span class="dv">BlinkMacSystemFont</span><span class="op">,</span> <span class="st">&#39;Segoe UI&#39;</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">16</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.6</span><span class="op">;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">400</span><span class="op">;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>h1<span class="op">,</span> h2<span class="op">,</span> h3 {</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-family</span><span class="ch">:</span> <span class="st">&#39;Clash Display&#39;</span><span class="op">,</span> <span class="st">&#39;SF Pro Rounded&#39;</span><span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">600</span><span class="op">;</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Scale:</strong> - <strong>Body:</strong> 16px (mobile), 18px
+(desktop) - <strong>Small:</strong> 14px (labels, metadata) -
+<strong>H3:</strong> 20px (card titles) - <strong>H2:</strong> 28px
+(page headers) - <strong>H1:</strong> 36px (hero text)</p>
+<p><strong>Multilingual Support:</strong> - <strong>Arabic:</strong>
+Line-height 1.8 (taller for diacritics) - <strong>CJK:</strong> Use Noto
+Sans CJK (Chinese/Japanese/Korean) - <strong>RTL languages:</strong>
+Auto-flip layout with <code>dir="rtl"</code></p>
+<hr />
+<h3 id="layout-system">Layout System</h3>
+<p><strong>Grid:</strong></p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.container</span> {</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">480</span><span class="dt">px</span><span class="op">;</span>        <span class="co">/* Mobile-first */</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">min-width</span><span class="ch">:</span> <span class="dv">768</span><span class="dt">px</span><span class="fu">)</span> {</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.container</span> {</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">720</span><span class="dt">px</span><span class="op">;</span>      <span class="co">/* Tablet */</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">min-width</span><span class="ch">:</span> <span class="dv">1200</span><span class="dt">px</span><span class="fu">)</span> {</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.container</span> {</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">1080</span><span class="dt">px</span><span class="op">;</span>     <span class="co">/* Desktop: Side-by-side modules */</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Card Anatomy:</strong></p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.card</span> {</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-bottom</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transition</span><span class="ch">:</span> <span class="dv">transform 0.2</span><span class="dt">s</span> <span class="dv">ease</span><span class="op">;</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">.card</span><span class="in">:hover</span> {</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateY(</span><span class="dv">-4</span><span class="dt">px</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">12</span><span class="dt">px</span> <span class="dv">48</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.6</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Spacing Scale:</strong></p>
+<pre><code>0.25rem → 4px   (tight elements)
+0.5rem  → 8px   (form fields)
+1rem    → 16px  (related items)
+1.5rem  → 24px  (cards, sections)
+3rem    → 48px  (major sections)</code></pre>
+<hr />
+<h3 id="ui-components">UI Components</h3>
+<h4 id="flashcard-vocabulary-module">1. Flashcard (Vocabulary
+Module)</h4>
+<pre class="tsx"><code>&lt;div className=&quot;flashcard&quot;&gt;
+  &lt;div className=&quot;flashcard-front&quot;&gt;
+    &lt;h2&gt;La manzana&lt;/h2&gt;
+    &lt;button className=&quot;audio-btn&quot;&gt;🔊&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;div className=&quot;flashcard-back&quot;&gt;
+    &lt;p className=&quot;definition&quot;&gt;The apple&lt;/p&gt;
+    &lt;p className=&quot;context&quot;&gt;&quot;Comí una manzana ayer.&quot;&lt;/p&gt;
+    
+    &lt;div className=&quot;rating-buttons&quot;&gt;
+      &lt;button className=&quot;rating rating-again&quot;&gt;Again&lt;/button&gt;
+      &lt;button className=&quot;rating rating-hard&quot;&gt;Hard&lt;/button&gt;
+      &lt;button className=&quot;rating rating-good&quot;&gt;Good&lt;/button&gt;
+      &lt;button className=&quot;rating rating-easy&quot;&gt;Easy&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p><strong>Visual:</strong></p>
+<pre><code>┌─────────────────────────────────┐
+│                                 │
+│        La manzana  🔊           │
+│                                 │
+└─────────────────────────────────┘
+             ⬇️  (flip animation)
+┌─────────────────────────────────┐
+│  The apple                      │
+│  &quot;Comí una manzana ayer.&quot;       │
+│                                 │
+│  [Again] [Hard] [Good] [Easy]   │
+└─────────────────────────────────┘</code></pre>
+<h4 id="progress-vine-persistent-ui-element">2. Progress Vine
+(Persistent UI Element)</h4>
+<p><strong>Concept:</strong> A growing vine (SVG) on the left sidebar
+that visualizes long-term progress.</p>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode svg"><code class="sourceCode xml"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">svg</span> <span class="ot">id=</span><span class="st">&quot;progress-vine&quot;</span> <span class="ot">width=</span><span class="st">&quot;60&quot;</span> <span class="ot">height=</span><span class="st">&quot;100%&quot;</span>&gt;</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">path</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="ot">d=</span><span class="st">&quot;M30,0 Q40,100 30,200 Q20,300 30,400&quot;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="ot">stroke=</span><span class="st">&quot;#67e8f9&quot;</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="ot">stroke-width=</span><span class="st">&quot;3&quot;</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="ot">fill=</span><span class="st">&quot;none&quot;</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">stroke-dasharray=</span><span class="st">&quot;1000&quot;</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="ot">stroke-dashoffset=</span><span class="st">&quot;800&quot;</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="er">&lt;!--</span><span class="co"> Animates as user progresses --&gt;</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  /&gt;</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Leaves = milestones (10 cards, 50 cards, 100 cards) --&gt;</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">circle</span> <span class="ot">cx=</span><span class="st">&quot;30&quot;</span> <span class="ot">cy=</span><span class="st">&quot;100&quot;</span> <span class="ot">r=</span><span class="st">&quot;8&quot;</span> <span class="ot">fill=</span><span class="st">&quot;#10b981&quot;</span> /&gt;</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">circle</span> <span class="ot">cx=</span><span class="st">&quot;30&quot;</span> <span class="ot">cy=</span><span class="st">&quot;200&quot;</span> <span class="ot">r=</span><span class="st">&quot;8&quot;</span> <span class="ot">fill=</span><span class="st">&quot;#fbbf24&quot;</span> /&gt;</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">svg</span>&gt;</span></code></pre></div>
+<p><strong>Growth Logic:</strong> - Vine height = Total XP / 100 - Leaf
+appears every 1000 XP - Vine color shifts: Cyan (beginner) → Emerald
+(intermediate) → Gold (advanced)</p>
+<h4 id="ai-avatar-bottom-right-corner">3. AI Avatar (Bottom-Right
+Corner)</h4>
+<p><strong>Purpose:</strong> Subtle companion that reacts to user
+actions.</p>
+<p><strong>Appearance:</strong> - 2.5D stylized face (SVG-based) -
+Minimal features (eyes, smile) - Soft glow around avatar</p>
+<p><strong>Reactions:</strong> | Event | Avatar Response | |——-|—————-|
+| Correct answer | Eyes close briefly (contentment), smile widens | |
+Wrong answer | Head tilts (empathy), no judgment | | Streak milestone |
+Subtle sparkle animation | | Session complete | Gentle nod, eyes glow
+cyan |</p>
+<p><strong>Implementation:</strong></p>
+<pre class="tsx"><code>&lt;div className=&quot;ai-avatar&quot;&gt;
+  &lt;svg viewBox=&quot;0 0 100 100&quot;&gt;
+    &lt;!-- Eyes (animate based on state) --&gt;
+    &lt;circle cx=&quot;35&quot; cy=&quot;40&quot; r=&quot;8&quot; fill=&quot;#67e8f9&quot; className=&quot;eye-left&quot; /&gt;
+    &lt;circle cx=&quot;65&quot; cy=&quot;40&quot; r=&quot;8&quot; fill=&quot;#67e8f9&quot; className=&quot;eye-right&quot; /&gt;
+    
+    &lt;!-- Smile (path morphs) --&gt;
+    &lt;path 
+      d=&quot;M30,60 Q50,70 70,60&quot; 
+      stroke=&quot;#f8fafc&quot; 
+      stroke-width=&quot;3&quot;
+      fill=&quot;none&quot;
+      className=&quot;smile&quot;
+    /&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;</code></pre>
+<h4 id="daily-goal-widget">4. Daily Goal Widget</h4>
+<pre><code>┌─────────────────────────────────────┐
+│  Today&#39;s Goal: 20 cards             │
+│                                     │
+│  ████████████░░░░░░  60% (12/20)    │
+│                                     │
+│  🔥 3-day streak                    │
+└─────────────────────────────────────┘</code></pre>
+<hr />
+<h3 id="micro-interactions">Micro-Interactions</h3>
+<p><strong>1. Card Flip Animation:</strong></p>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.flashcard</span> {</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transition</span><span class="ch">:</span> <span class="dv">transform 0.6</span><span class="dt">s</span><span class="op">;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transform-style</span><span class="ch">:</span> <span class="dv">preserve-3d</span><span class="op">;</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">.flashcard.flipped</span> {</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transform</span><span class="ch">:</span> <span class="fu">rotateY(</span><span class="dv">180</span><span class="dt">deg</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>2. Correct Answer Pulse:</strong></p>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">@keyframes</span> success-pulse {</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0%</span> { <span class="kw">transform</span><span class="ch">:</span> <span class="fu">scale(</span><span class="dv">1</span><span class="fu">)</span><span class="op">;</span> }</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">50%</span> { <span class="kw">transform</span><span class="ch">:</span> <span class="fu">scale(</span><span class="dv">1.05</span><span class="fu">)</span><span class="op">;</span> <span class="kw">box-shadow</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">20</span><span class="dt">px</span> <span class="cn">#67e8f9</span><span class="op">;</span> }</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">100%</span> { <span class="kw">transform</span><span class="ch">:</span> <span class="fu">scale(</span><span class="dv">1</span><span class="fu">)</span><span class="op">;</span> }</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">.card.correct</span> {</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">animation</span><span class="ch">:</span> <span class="dv">success-pulse 0.3</span><span class="dt">s</span> <span class="dv">ease</span><span class="op">;</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>3. Haptic Feedback (Mobile):</strong></p>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">// On correct answer</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">navigator</span><span class="op">.</span><span class="fu">vibrate</span>(<span class="dv">30</span>)<span class="op">;</span>  <span class="co">// Short tick</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">// On wrong answer</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="bu">navigator</span><span class="op">.</span><span class="fu">vibrate</span>([<span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span>])<span class="op">;</span>  <span class="co">// Double tap</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">// On milestone</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="bu">navigator</span><span class="op">.</span><span class="fu">vibrate</span>([<span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">200</span>])<span class="op">;</span>  <span class="co">// Celebration pattern</span></span></code></pre></div>
+<p><strong>4. Spatial Audio:</strong></p>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> audio <span class="op">=</span> {</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">correct</span><span class="op">:</span> <span class="kw">new</span> <span class="fu">Audio</span>(<span class="st">&#39;/sounds/chime-soft.mp3&#39;</span>)<span class="op">,</span>    <span class="co">// 440Hz, 0.2s</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">incorrect</span><span class="op">:</span> <span class="kw">new</span> <span class="fu">Audio</span>(<span class="st">&#39;/sounds/thud-soft.mp3&#39;</span>)<span class="op">,</span>   <span class="co">// 220Hz, 0.3s</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">milestone</span><span class="op">:</span> <span class="kw">new</span> <span class="fu">Audio</span>(<span class="st">&#39;/sounds/bell-warm.mp3&#39;</span>)<span class="op">,</span>   <span class="co">// Harmonious chord</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>audio<span class="op">.</span><span class="at">correct</span><span class="op">.</span><span class="at">volume</span> <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span>  <span class="co">// Subtle, not jarring</span></span></code></pre></div>
+<hr />
+<h3 id="accessibility">Accessibility</h3>
+<p><strong>WCAG AAA Compliance:</strong> - <strong>Color
+contrast:</strong> 4.5:1 minimum (body text) - <strong>Focus
+indicators:</strong> 3px cyan outline on interactive elements -
+<strong>Keyboard navigation:</strong> Tab through all actions -
+<strong>Screen reader:</strong> ARIA labels on all icons/buttons</p>
+<p><strong>Reduce Motion:</strong></p>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">prefers-reduced-motion</span><span class="ch">:</span> <span class="dv">reduce</span><span class="fu">)</span> {</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">*</span> {</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">animation-duration</span><span class="ch">:</span> <span class="dv">0.01</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">transition-duration</span><span class="ch">:</span> <span class="dv">0.01</span><span class="dt">ms</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Font Scaling:</strong> - Respect user’s OS font size setting
+- Allow in-app text size adjustment (Settings)</p>
+<hr />
+<h3 id="performance-targets">Performance Targets</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>First Contentful Paint</strong></td>
+<td>&lt; 1.2s</td>
+<td>User sees content fast</td>
+</tr>
+<tr>
+<td><strong>Largest Contentful Paint</strong></td>
+<td>&lt; 2.5s</td>
+<td>Main content loaded</td>
+</tr>
+<tr>
+<td><strong>Time to Interactive</strong></td>
+<td>&lt; 3.0s</td>
+<td>User can act quickly</td>
+</tr>
+<tr>
+<td><strong>JavaScript Bundle</strong></td>
+<td>&lt; 150KB</td>
+<td>Fast on 3G networks</td>
+</tr>
+<tr>
+<td><strong>Image Optimization</strong></td>
+<td>WebP, lazy load</td>
+<td>Reduce bandwidth</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Optimization Strategies:</strong> - Code splitting per module
+(load Vocabulary separate from Speaking) - Service worker for offline
+caching - CDN for audio/image assets - Database query caching
+(Redis)</p>
+<hr />
+<h2 id="gamification-strategy">Gamification Strategy</h2>
+<h3 id="philosophy-1">Philosophy</h3>
+<blockquote>
+<p><strong>“Gamification should reward learning, not just logging
+in.”</strong></p>
+</blockquote>
+<p><strong>What We Avoid:</strong> - ❌ Daily login bonuses (encourages
+empty sessions) - ❌ Pay-to-skip mechanics (undermines learning) - ❌
+Public shaming (leaderboards showing “worst” performers)</p>
+<p><strong>What We Embrace:</strong> - ✅ Mastery-based XP (more XP for
+difficult cards) - ✅ Intrinsic rewards (seeing your vine grow) - ✅
+Collaborative goals (study with friends)</p>
+<hr />
+<h3 id="xp-system">XP System</h3>
+<p><strong>XP Sources:</strong></p>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th>Action</th>
+<th>XP Earned</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Review card (Good)</td>
+<td>10 XP</td>
+<td>Base reward</td>
+</tr>
+<tr>
+<td>Review card (Hard)</td>
+<td>15 XP</td>
+<td>More effort = more reward</td>
+</tr>
+<tr>
+<td>Review card (Easy)</td>
+<td>5 XP</td>
+<td>Too easy = less learning</td>
+</tr>
+<tr>
+<td>Complete 20-card session</td>
+<td>50 XP</td>
+<td>Consistency bonus</td>
+</tr>
+<tr>
+<td>7-day streak maintained</td>
+<td>200 XP</td>
+<td>Building habit</td>
+</tr>
+<tr>
+<td>Shadowing exercise (&gt;80% score)</td>
+<td>30 XP</td>
+<td>Output practice</td>
+</tr>
+<tr>
+<td>Write 100-word composition</td>
+<td>40 XP</td>
+<td>Deep engagement</td>
+</tr>
+<tr>
+<td>Read article (5+ min)</td>
+<td>25 XP</td>
+<td>Input practice</td>
+</tr>
+<tr>
+<td>Create public deck (&gt;10 subscribers)</td>
+<td>500 XP</td>
+<td>Community contribution</td>
+</tr>
+</tbody>
+</table>
+<p><strong>XP Decay Prevention:</strong> - No XP loss for missing days
+(no punishment) - Bonus XP for returning after 3+ day break
+(encouragement)</p>
+<p><strong>Level System:</strong></p>
+<pre><code>Level 1:      0 -   500 XP  (Seedling 🌱)
+Level 2:    500 - 1,500 XP  (Sprout 🌿)
+Level 5:  5,000 - 10,000 XP (Tree 🌳)
+Level 10: 25,000 - 50,000 XP (Forest 🌲)</code></pre>
+<hr />
+<h3 id="streaks">Streaks</h3>
+<p><strong>Definition:</strong> Consecutive days with at least 1
+completed study session.</p>
+<p><strong>Visualization:</strong></p>
+<pre><code>🔥 14-day streak
+
+Week 1: ✅✅✅✅✅✅✅
+Week 2: ✅✅✅✅✅✅✅
+Today:  ← 2 hours left to maintain streak!</code></pre>
+<p><strong>Streak Freezes:</strong> - Earn 1 freeze per 7-day streak -
+Use freeze to skip 1 day without breaking streak - Max 2 freezes
+stored</p>
+<p><strong>Milestones:</strong> - 7 days: +200 XP, “Week Warrior” badge
+- 30 days: +1000 XP, “Monthly Maestro” badge - 100 days: +5000 XP,
+“Centurion” badge, custom avatar frame</p>
+<hr />
+<h3 id="badges">Badges</h3>
+<p><strong>Categories:</strong></p>
+<p><strong>1. Consistency Badges:</strong> - 🌟 <strong>First
+Steps:</strong> Complete 1st study session - 🔥 <strong>Week
+Warrior:</strong> 7-day streak - 📅 <strong>Monthly Maestro:</strong>
+30-day streak - 💎 <strong>Century Club:</strong> 100-day streak</p>
+<p><strong>2. Mastery Badges:</strong> - 📚 <strong>Vocab
+Novice:</strong> Review 100 cards - 📖 <strong>Vocab Scholar:</strong>
+Review 1,000 cards - 🎓 <strong>Vocab Master:</strong> Review 10,000
+cards - 🗣️ <strong>Pronunciation Pro:</strong> 50 shadowing exercises
+(&gt;80% score) - ✍️ <strong>Writer’s Guild:</strong> Write 10,000 words
+total</p>
+<p><strong>3. Social Badges:</strong> - 👥 <strong>Deck
+Creator:</strong> Publish 1st public deck - ⭐ <strong>Community
+Star:</strong> Your deck reaches 100 subscribers - 🤝 <strong>Study
+Buddy:</strong> Complete 10 co-study sessions with friends</p>
+<p><strong>4. Special Badges:</strong> - 🌙 <strong>Night Owl:</strong>
+Study session at 2-4am - 🌍 <strong>Polyglot Path:</strong> Study 3+
+languages in platform - 🏆 <strong>Leaderboard Legend:</strong> Top 10
+in monthly XP</p>
+<p><strong>Display:</strong> - Profile page: Showcase up to 6 favorite
+badges - Badge cabinet: View all earned badges (grayed out = locked)</p>
+<hr />
+<h3 id="leaderboards">Leaderboards</h3>
+<p><strong>Types:</strong></p>
+<p><strong>1. Global Leaderboard (Monthly):</strong></p>
+<pre><code>Rank  User           XP This Month
+─────────────────────────────────
+  1   🥇 Sarah        15,240 XP
+  2   🥈 Miguel       14,890 XP
+  3   🥉 Yuki         13,750 XP
+...
+ 42   You             8,120 XP</code></pre>
+<p><strong>2. Friends Leaderboard:</strong></p>
+<pre><code>Among your 12 friends:
+
+  1   Alex           3,450 XP
+  2   You            3,210 XP
+  3   Jamie          2,980 XP</code></pre>
+<p><strong>3. Language-Specific:</strong></p>
+<pre><code>Top Spanish Learners (This Week):
+
+  1   Carlos         2,100 XP
+  2   You            1,850 XP</code></pre>
+<p><strong>Privacy:</strong> - Opt-out option (hide from global
+leaderboard) - Only show first name + last initial (e.g., “Sarah M.”) -
+Friends leaderboard requires mutual follow</p>
+<hr />
+<h3 id="progress-visualization">Progress Visualization</h3>
+<p><strong>1. Module Progress Rings:</strong></p>
+<pre><code>Dashboard shows 5 rings (one per module):
+
+   Vocabulary  Speaking  Writing  Reading  Listening
+      88%        45%       23%      67%       34%</code></pre>
+<p><strong>2. Language Proficiency Estimate:</strong></p>
+<pre><code>Spanish Proficiency: B1 (Intermediate)
+
+📊 Breakdown:
+- Vocabulary: 1,842 words known (B1: 1,500-2,500)
+- Grammar: 78% accuracy on B1 structures
+- Listening: 85% comprehension on B1 audio
+- Speaking: Estimated B1 (based on AI conversations)
+
+🎯 Next milestone: B2 (need 658 more words)</code></pre>
+<p><strong>3. Time Investment Graph:</strong></p>
+<pre><code>Study Time This Month: 14h 32m
+
+   Hours
+    8 ┤     ╭───●
+    6 ┤   ╭─╯
+    4 ┤ ╭─╯
+    2 ┤─╯
+    0 └──────────────
+      Week 1  2  3  4</code></pre>
+<hr />
+<h2 id="ai-personalization">AI &amp; Personalization</h2>
+<h3 id="learning-profile">Learning Profile</h3>
+<p><strong>System tracks:</strong> - <strong>Vocabulary size</strong>
+(per language) - <strong>Grammar competency</strong> (which structures
+mastered) - <strong>Preferred content</strong> (topics: sports, tech,
+food, etc.) - <strong>Optimal study time</strong> (morning person
+vs. night owl) - <strong>Review patterns</strong> (FSRS difficulty
+parameters)</p>
+<p><strong>Adaptive Content Recommendations:</strong></p>
+<pre><code>&quot;Based on your progress, we recommend:
+- 📖 Reading: &#39;El Alchemista&#39; (90% known vocabulary)
+- 🎧 Podcast: &#39;Coffee Break Spanish&#39; Episode 42
+- 📝 Writing: Practice present subjunctive (your weak area)</code></pre>
+<h3 id="ai-features">AI Features</h3>
+<p><strong>1. Smart Review Ordering:</strong> - Mix old + new cards (not
+all hard cards at end) - Interleave topics (vocabulary + grammar, not
+blocks) - Priority to cards near “forgetting threshold”</p>
+<p><strong>2. Difficulty Auto-Adjustment:</strong> - Text too easy
+(&gt;98% comprehension) → suggest harder texts - Speaking exercises too
+fast → auto-slow to 0.8x</p>
+<p><strong>3. Personalized Study Plans:</strong></p>
+<pre><code>Your goal: B2 Spanish in 6 months
+
+Weekly plan:
+- Monday/Wed/Fri: 30 min vocabulary review
+- Tuesday/Thursday: 20 min speaking practice
+- Weekends: 40 min reading + listening</code></pre>
+<p><strong>4. AI Tutor (Future Feature):</strong> - Ask questions: “When
+do I use ‘ser’ vs. ‘estar’?” - Get explanations in your native language
+- Request custom exercises for weak areas</p>
+<hr />
+<h2 id="roadmap">Roadmap</h2>
+<h3 id="phase-1-mvp-q4-2025-in-progress">Phase 1: MVP (Q4 2025) ✅ In
+Progress</h3>
+<p><strong>Core Features:</strong> - ✅ User authentication (register,
+login, JWT) - ✅ Vocabulary module (FSRS flashcards) - ✅ Deck
+management (create, fork, commit) - ✅ Basic gamification (XP, streaks,
+levels) - 🚧 Speaking module (shadowing only) - 🚧 Reading module
+(graded texts library)</p>
+<p><strong>Tech Debt:</strong> - Finalize gRPC communication (Python ↔︎
+ASP.NET) - Docker compose for local dev environment - CI/CD pipeline
+(GitHub Actions)</p>
+<hr />
+<h3 id="phase-2-enhanced-modules-q1-2026">Phase 2: Enhanced Modules (Q1
+2026)</h3>
+<p><strong>New Features:</strong> - Listening module (podcast library,
+dictation) - Writing module (sentence builder, composition studio) -
+Speaking: Conversation simulator (AI partner) - Social features
+(friends, leaderboards, profile pages)</p>
+<p><strong>Design:</strong> - Full “Quiet Immersion” UI implementation -
+AI avatar reactions - Progress vine animation - Mobile PWA (offline
+mode)</p>
+<hr />
+<h3 id="phase-3-community-content-q2-2026">Phase 3: Community &amp;
+Content (Q2 2026)</h3>
+<p><strong>Marketplace:</strong> - Public deck discovery (search,
+filters, ratings) - Deck versioning UI (commit history, diffs, merge) -
+Creator analytics (subscriber count, review stats)</p>
+<p><strong>User-Generated Content:</strong> - Import tool (Anki, CSV,
+Quizlet) - Bulk sentence mining (paste article → auto-generate cards) -
+Image/audio uploads for custom cards</p>
+<p><strong>Monetization (Optional):</strong> - Premium tier ($5/mo): -
+Unlimited decks (free: 5 decks max) - Advanced stats (granular progress
+graphs) - Priority AI features (faster pronunciation scoring) - Keep
+core learning free forever</p>
+<hr />
+<h3 id="phase-4-advanced-ai-q3-2026">Phase 4: Advanced AI (Q3 2026)</h3>
+<p><strong>AI Tutor:</strong> - Chat with AI in target language
+(Socratic method) - Grammar explanations on-demand - Personalized study
+plan generator</p>
+<p><strong>Content Intelligence:</strong> - Auto-generate decks from
+YouTube videos (extract subtitles) - Podcast transcription + vocabulary
+extraction - Adaptive text difficulty (AI rewrites texts to your
+level)</p>
+<p><strong>Speech Tech:</strong> - Real-time pronunciation feedback
+during shadowing - Accent training (British vs. American English) -
+Emotion detection (are you confident or hesitant?)</p>
+<hr />
+<h3 id="phase-5-mobile-apps-q4-2026">Phase 5: Mobile Apps (Q4 2026)</h3>
+<p><strong>Native iOS/Android:</strong> - Offline study mode (sync when
+online) - Widgets (daily goal progress, streak counter) - Push
+notifications (gentle reminders, not spam) - Voice-first interface
+(study while commuting)</p>
+<p><strong>Wearables:</strong> - Apple Watch: Quick reviews during
+breaks - Smart speakers: “Alexa, quiz me on Spanish vocab”</p>
+<hr />
+<h2 id="success-metrics">Success Metrics</h2>
+<h3 id="learning-outcomes-primary">Learning Outcomes (Primary)</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measurement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vocabulary retention</strong></td>
+<td>85%+ after 30 days</td>
+<td>FSRS data (cards due vs. cards remembered)</td>
+</tr>
+<tr>
+<td><strong>User-reported fluency gain</strong></td>
+<td>+1 CEFR level per 6 months</td>
+<td>Self-assessment survey</td>
+</tr>
+<tr>
+<td><strong>Active study rate</strong></td>
+<td>60% of users study 3+ days/week</td>
+<td>Session logs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="engagement-secondary">Engagement (Secondary)</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measurement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>7-day retention</strong></td>
+<td>50%</td>
+<td>Users who return after 1 week</td>
+</tr>
+<tr>
+<td><strong>30-day retention</strong></td>
+<td>30%</td>
+<td>Users still active after 1 month</td>
+</tr>
+<tr>
+<td><strong>Average session length</strong></td>
+<td>15-20 minutes</td>
+<td>Time from start to end of study session</td>
+</tr>
+<tr>
+<td><strong>Daily active users (DAU)</strong></td>
+<td>Grow 10% month-over-month</td>
+<td>Login events per day</td>
+</tr>
+</tbody>
+</table>
+<h3 id="community-tertiary">Community (Tertiary)</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Measurement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Public decks created</strong></td>
+<td>1,000+ in Year 1</td>
+<td>Deck publish events</td>
+</tr>
+<tr>
+<td><strong>Deck forks</strong></td>
+<td>20% of public decks forked</td>
+<td>Fork action count</td>
+</tr>
+<tr>
+<td><strong>Average deck rating</strong></td>
+<td>4.2+ / 5 stars</td>
+<td>User ratings (after studying deck)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="technical-infrastructure">Technical (Infrastructure)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Current</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API response time</strong></td>
+<td>&lt; 200ms (p95)</td>
+<td>Monitor with Datadog/Grafana</td>
+</tr>
+<tr>
+<td><strong>Uptime</strong></td>
+<td>99.5%</td>
+<td>Exclude planned maintenance</td>
+</tr>
+<tr>
+<td><strong>Mobile load time</strong></td>
+<td>&lt; 2s (LCP)</td>
+<td>Lighthouse CI scores</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>LineByLine</strong> is not just another language app—it’s a
+<strong>scientifically-grounded learning ecosystem</strong> that
+respects users’ time, intelligence, and goals.</p>
+<h3 id="what-makes-us-different">What Makes Us Different</h3>
+<ol type="1">
+<li><strong>Science over engagement hacks</strong> — FSRS,
+comprehensible input, output practice</li>
+<li><strong>Modular mastery</strong> — Focus on one skill deeply, not
+shallow “gamified” lessons</li>
+<li><strong>Community-driven content</strong> — Git-like deck
+versioning, public marketplace</li>
+<li><strong>Privacy-first design</strong> — No data selling, no
+manipulative streaks</li>
+<li><strong>Beautiful, calming UI</strong> — “Quiet Immersion” design
+for distraction-free learning</li>
+</ol>
+<h3 id="our-promise">Our Promise</h3>
+<blockquote>
+<p><strong>“We succeed when you become fluent, not when you open the app
+100 days in a row.”</strong></p>
+</blockquote>
+<hr />
+<h2 id="appendices">Appendices</h2>
+<h3 id="a.-glossary-of-language-learning-terms">A. Glossary of Language
+Learning Terms</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CEFR</strong></td>
+<td>Common European Framework of Reference (A1 → C2)</td>
+</tr>
+<tr>
+<td><strong>Comprehensible Input</strong></td>
+<td>Language slightly above current level (i+1)</td>
+</tr>
+<tr>
+<td><strong>Comprehensible Output</strong></td>
+<td>Producing language to test hypotheses</td>
+</tr>
+<tr>
+<td><strong>FSRS</strong></td>
+<td>Free Spaced Repetition Scheduler (ML-based algorithm)</td>
+</tr>
+<tr>
+<td><strong>Shadowing</strong></td>
+<td>Repeating audio simultaneously to improve pronunciation</td>
+</tr>
+<tr>
+<td><strong>SRS</strong></td>
+<td>Spaced Repetition System (generic term)</td>
+</tr>
+<tr>
+<td><strong>i+1</strong></td>
+<td>Input at “current level + 1 difficulty”</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b.-recommended-reading">B. Recommended Reading</h3>
+<ul>
+<li><strong>“The Natural Approach”</strong> by Stephen Krashen</li>
+<li><strong>“How Languages Are Learned”</strong> by Patsy Lightbown</li>
+<li><strong>“Make It Stick”</strong> by Peter Brown (learning
+science)</li>
+<li><strong>“Fluent Forever”</strong> by Gabriel Wyner (practical
+methods)</li>
+</ul>
+<h3 id="c.-technical-documentation-links">C. Technical Documentation
+Links</h3>
+<ul>
+<li><strong>FSRS Algorithm:</strong> <a
+href="https://github.com/open-spaced-repetition/fsrs4anki">open-spaced-repetition/fsrs4anki</a></li>
+<li><strong>gRPC Protocol:</strong>
+<code>proto/fsrs_service.proto</code> (internal repo)</li>
+<li><strong>API Endpoints:</strong> <code>docs/api-reference.md</code>
+(internal repo)</li>
+<li><strong>Design System:</strong> <code>docs/design-system.md</code>
+(internal repo)</li>
+</ul>
+<hr />
+<p><strong>Last Updated:</strong> October 31, 2025<br />
+<strong>Document Owner:</strong> LineByLine Product Team<br />
+<strong>Contact:</strong> [project repository]</p>
+<hr />
+<p><em>This is a living document. As we learn from users and iterate on
+features, we’ll update this vision accordingly.</em></p>
+</body>
+</html>
